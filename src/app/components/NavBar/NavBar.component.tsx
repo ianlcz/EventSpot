@@ -6,13 +6,13 @@ import NavLink from "./NavLink.component";
 
 const NavBar = () => {
   const navLinks: TLink[] = [
-    { name: "Événements", href: "events" },
-    { name: "À propos", href: "about" },
+    { name: "Événements", href: "/events" },
+    { name: "À propos", href: "/about" },
   ];
 
   return (
     <nav
-      className='max-w-[60rem] w-full mx-auto mt-2 px-3 py-2 flex flex-wrap basis-full items-center justify-between md:rounded-2xl md:border md:border-gray-200 dark:bg-transparent dark:border-gray-700 md:shadow-md'
+      className='w-full mx-auto mt-4 px-3 py-2 flex flex-wrap basis-full items-center justify-between md:rounded-2xl md:border md:border-gray-200 dark:bg-transparent dark:border-gray-700 md:shadow-lg'
       aria-label='Global'
     >
       <Link
@@ -74,7 +74,7 @@ const NavBar = () => {
         id='navbar-alignment'
         className='hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2'
       >
-        <div className='flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5'>
+        <div className='flex flex-col gap-3 md:gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5'>
           {navLinks.map((nl, idx) => (
             <NavLink link={nl} key={idx} />
           ))}

@@ -22,10 +22,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className='w-full max-w-[85rem]  px-4 py-1 sm:px-6 lg:px-8 mx-auto'>
+    <footer className='w-full px-4 py-1 sm:px-6 lg:px-8 mx-auto'>
       <div className='text-center'>
         <p className='font-light text-xs text-gray-500'>
-          © EventSpot. {new Date().getFullYear()} ianlcz. All rights reserved.
+          © EventSpot. {new Date().getFullYear()} ianlcz. Tous droits réservés.
         </p>
 
         <div className='mt-1 space-x-2'>

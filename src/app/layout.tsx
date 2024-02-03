@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "EventSpot",
   description:
     "Découvrez, partagez, vivez la culture française avec EventSpot.",
+  authors: [{ name: "ianlcz", url: "https://ianlcz.io" }],
 };
 
 export const viewport: Viewport = {
@@ -21,15 +22,17 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => (
   <html lang='fr'>
-    <body className={`${montserrat.className} bg-white dark:bg-gray-800`}>
-      <header className='flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm dark:bg-gray-800'>
+    <body
+      className={`${montserrat.className} max-w-5xl mx-auto bg-white dark:bg-gray-800`}
+    >
+      <header className='flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm'>
         <Navbar />
       </header>
 
       <main
         id='content'
         role='main'
-        className='max-w-3xl min-h-screen bg-white py-10 px-4 sm:px-6 lg:px-8 dark:bg-gray-800'
+        className='min-h-screen mt-4 px-4 lg:px-0 lg:mt-8'
       >
         {children}
       </main>
