@@ -6,10 +6,14 @@ import { montserrat } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "EventSpot",
+  title: {
+    template: "%s | EventSpot",
+    default: "EventSpot",
+  },
   description:
     "Découvrez, partagez, vivez la culture française avec EventSpot.",
   authors: [{ name: "ianlcz", url: "https://ianlcz.io" }],
+  metadataBase: new URL("https://eventspot.ianlcz.io"),
 };
 
 export const viewport: Viewport = {
@@ -23,9 +27,9 @@ const RootLayout = ({
 }>) => (
   <html lang='fr'>
     <body
-      className={`${montserrat.className} max-w-5xl mx-auto bg-white dark:bg-gray-800`}
+      className={`${montserrat.className} max-w-5xl mx-auto bg-white dark:bg-slate-800`}
     >
-      <header className='flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm'>
+      <header className='flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm md:px-4 lg:px-0'>
         <Navbar />
       </header>
 
