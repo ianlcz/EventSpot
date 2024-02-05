@@ -1,5 +1,5 @@
 import { righteous } from "@/app/fonts";
-import { Link as TLink } from "@/app/lib/types/link.type";
+import { Link as TLink } from "@/app/lib/definitions";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./NavLink.component";

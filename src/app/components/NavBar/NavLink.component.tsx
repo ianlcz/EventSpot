@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Link as TLink } from "../../lib/types/link.type";
+import { Link as TLink } from "../../lib/definitions";
 
 const NavLink = ({ link }: { link: TLink }) => {
   const pathname: string = usePathname();

@@ -1,4 +1,4 @@
-import { Link as TLink } from "@/app/lib/types/link.type";
+import { Link as TLink } from "@/app/lib/definitions";
 import Link from "next/link";
 
 const Footer = () => {
