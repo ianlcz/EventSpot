@@ -25,7 +25,10 @@ const Footer = () => {
     <footer className='w-full mt-4 px-4 py-1 sm:px-6 lg:px-8 mx-auto'>
       <div className='text-center'>
         <p className='font-light text-xs text-gray-500'>
-          © EventSpot. {new Date().getFullYear()} ianlcz. Tous droits réservés.
+          © {new Date().getFullYear()} EventSpot. Made with ❤️ by{" "}
+          <Link href='https://twitter.com/ianlcz' className='font-semibold'>
+            @ianlcz
+          </Link>
         </p>
 
         <div className='mt-1 space-x-2'>
