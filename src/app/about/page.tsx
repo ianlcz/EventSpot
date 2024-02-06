@@ -43,16 +43,18 @@ const Page = () => {
   return (
     <>
       <HeadingSection title='À Propos de EventSpot'>
-        <span className={righteous.className + " uppercase"}>EventSpot</span>{" "}
-        est un projet ambitieux née du désir de partager la richesse culturelle
-        de la France avec le monde. Je suis{" "}
-        <span className='font-semibold'>Yann Le Coz</span>, le fondateur et le
-        seul membre de ce projet. Mon objectif est de vous offrir une expérience
-        unique, vous permettant de découvrir et de vivre pleinement chaque
-        aspect de la scène culturelle française.
+        <p className='text-justify text-sm md:text-lg'>
+          <span className={righteous.className + " uppercase"}>EventSpot</span>{" "}
+          est un projet ambitieux née du désir de partager la richesse
+          culturelle de la France avec le monde. Je suis{" "}
+          <span className='font-semibold'>Yann Le Coz</span>, le fondateur et le
+          seul membre de ce projet. Mon objectif est de vous offrir une
+          expérience unique, vous permettant de découvrir et de vivre pleinement
+          chaque aspect de la scène culturelle française.
+        </p>
       </HeadingSection>
 
-      <h2 className='mt-8 block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
+      <h2 className='block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
         L&apos;Origine
       </h2>
       <p className='mt-4 text-sm md:text-lg text-gray-800 dark:text-gray-400 text-justify'>

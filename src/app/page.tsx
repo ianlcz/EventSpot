@@ -47,15 +47,17 @@ const Home = () => {
   return (
     <>
       <HeadingSection title="Découvrez l'Art de la Culture en France">
-        Bienvenue sur{" "}
-        <span className={righteous.className + " uppercase"}>EventSpot</span>,
-        votre compagnon ultime pour explorer le riche paysage culturel de la
-        France. Que vous soyez passionné d&apos;art, de musique, de théâtre ou
-        de tout ce qui concerne la culture, notre application est votre guide
-        complet pour tous les événements culturels à travers le pays.
+        <p className='text-justify text-sm md:text-lg'>
+          Bienvenue sur{" "}
+          <span className={righteous.className + " uppercase"}>EventSpot</span>,
+          votre compagnon ultime pour explorer le riche paysage culturel de la
+          France. Que vous soyez passionné d&apos;art, de musique, de théâtre ou
+          de tout ce qui concerne la culture, notre application est votre guide
+          complet pour tous les événements culturels à travers le pays.
+        </p>
       </HeadingSection>
 
-      <h2 className='mt-8 block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
+      <h2 className='block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
         Pourquoi choisir EventSpot ?
       </h2>
       <ul className='mt-4 list-disc text-sm md:text-lg list-inside text-gray-800 dark:text-gray-400 text-justify'>

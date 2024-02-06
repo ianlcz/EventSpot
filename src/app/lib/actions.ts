@@ -17,7 +17,7 @@ const FormSchema = z.object({
 
 const CreateUser = FormSchema.omit({ id: true });
 
-export const createUser = async (formData: FormData) => {
+export const createUser = async (formData: FormData): Promise<void> => {
   const {
     lastname,
     firstname,

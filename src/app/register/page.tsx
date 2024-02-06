@@ -1,29 +1,76 @@
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Form from "../components/users/create-form.component";
+import { default as RegisterForm } from "../components/Form/Form.component";
+import Input from "../components/Input/Input.component";
+import Password from "../components/Input/Password.component";
+import { createUser } from "../lib/actions";
 
-const Page = () => {
-  return (
-    <div className='max-w-xl md:max-w-lg mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-transparent dark:border-gray-700'>
-      <div className='p-4 sm:p-7'>
-        <div className='text-center'>
-          <h1 className='block text-2xl font-bold text-gray-800 dark:text-white'>
-            Créer un compte
-          </h1>
-          <p className='mt-2 text-sm text-gray-600 dark:text-gray-400'>
-            Vous avez déjà un compte ?{" "}
-            <Link
-              className='text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
-              href='/login'
-            >
-              Connectez-vous
-            </Link>
-          </p>
-        </div>
+const Page = () => (
+  <RegisterForm
+    head={{
+      title: "Création d'un compte",
+      content: (
+        <>
+          Vous avez déjà un compte ?{" "}
+          <Link
+            className='decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
+            href='/login'
+          >
+            Connectez-vous
+          </Link>
+        </>
+      ),
+    }}
+    action={createUser}
+    submitTitle='Je crée mon compte'
+  >
+    <div className='flex flex-col md:flex-row justify-between gap-4'>
+      <Input
+        name='lastname'
+        label='Votre nom de famille'
+        type='text'
+        required
+      />
 
-        <Form />
-      </div>
+      <Input name='firstname' label='Votre prénom' type='text' required />
     </div>
-  );
-};
+
+    <Input
+      name='phoneNumber'
+      label='Votre numéro de téléphone'
+      type='tel'
+      placeholder='+33 0 00 00 00 00'
+    />
+
+    <Input name='bornAt' label='Votre date de naissance' type='date' />
+
+    <Input
+      name='email'
+      label='Votre adresse email'
+      type='email'
+      placeholder='john.doe@example.com'
+      required
+    >
+      <div className='absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4'>
+        <EnvelopeIcon
+          className='flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-600'
+          strokeWidth={2}
+        />
+      </div>
+    </Input>
+
+    <Password
+      name='password'
+      label='Votre mot de passe'
+      placeholder='Entrez votre mot de passe'
+      required
+    />
+    <Password
+      name='confirmPassword'
+      placeholder='Confirmez votre mot de passe'
+      required
+    />
+  </RegisterForm>
+);
 
 export default Page;
