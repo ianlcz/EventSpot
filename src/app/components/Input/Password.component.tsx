@@ -59,14 +59,17 @@ const Password: FunctionComponent<PasswordProps> = ({
         />
       </svg>
     </button>
-    <div
-      id='hs-strong-password-minLength'
-      data-hs-strong-password={`{
+    {props.name === "password" ? (
+      <div
+        id='hs-strong-password'
+        data-hs-strong-password={`{
 "target": "#${props.name}",
-"stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-blue-500 opacity-50 mx-1"
+"stripClasses": "hs-strong-password:opacity-100 hs-strong-password-accepted:bg-teal-500 h-2 flex-auto rounded-full bg-blue-500 opacity-50 mx-1",
+"minLength": "8"
 }`}
-      className='flex mt-2 -mx-1'
-    ></div>
+        className='flex mt-2 -mx-1'
+      ></div>
+    ) : undefined}
   </Input>
 );
 

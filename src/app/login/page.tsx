@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Je me connecte",
+  title: "Connectez-vous",
 };
 
 const Page = () => {

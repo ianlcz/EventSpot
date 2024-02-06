@@ -36,7 +36,7 @@ const RootLayout = ({
       <main
         id='content'
         role='main'
-        className='min-h-screen mt-4 px-4 lg:px-0 lg:mt-8'
+        className='min-h-screen mt-4 px-4 lg:px-0 lg:mt-8 font-light'
       >
         {children}
       </main>

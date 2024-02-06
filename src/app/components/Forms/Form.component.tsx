@@ -3,7 +3,7 @@ import HeadingSection from "../HeadingSection.component";
 
 export type FormProps = {
   head: { title: string; content?: JSX.Element };
-  action: (formData: FormData) => Promise<void>;
+  action: (payload: FormData) => {} | void;
   submitTitle: string;
 };
 
@@ -15,7 +15,7 @@ const Form: FunctionComponent<PropsWithChildren<FormProps>> = ({
 }) => (
   <div className='max-w-xl md:max-w-lg mx-auto'>
     <HeadingSection title={title}>
-      <div className='text-sm text-white font-light text-center'>{content}</div>
+      <div className='text-sm text-white text-center'>{content}</div>
     </HeadingSection>
 
     <form
