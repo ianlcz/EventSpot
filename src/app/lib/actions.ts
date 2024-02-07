@@ -2,59 +2,11 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { z } from "zod";
-
-const SignUpSchema = z
-  .object({
-    lastname: z.string().refine((data) => data !== undefined && data !== "", {
-      message: "Veuillez renseigner votre nom de famille.",
-    }),
-    firstname: z.string().refine((data) => data !== undefined && data !== "", {
-      message: "Veuillez renseigner votre prénom.",
-    }),
-    phoneNumber: z.string(),
-    email: z.string().email({
-      message: "Veuillez saisir une adresse email valide.",
-    }),
-    password: z
-      .string()
-      .min(8, {
-        message: "Doit avoir au moins 8 caractères.",
-      })
-      .refine((data) => /[A-Z]/.test(data), {
-        message: "Doit contenir des majuscules.",
-      })
-      .refine((data) => /[a-z]/.test(data), {
-        message: "Doit contenir des minuscules.",
-      })
-      .refine((data) => /\d/.test(data), {
-        message: "Doit contenir des chiffres.",
-      })
-      .refine((data) => /[!@#$%^&*(),.?":{}|<>]/.test(data), {
-        message: "Doit contenir au moins un caractère spécial.",
-      }),
-
-    confirmPassword: z.string(),
-    bornAt: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Les mots de passe ne correspondent pas.",
-    path: ["confirmPassword"],
-  });
-
-export type State = {
-  errors?: {
-    lastname?: string[];
-    firstname?: string[];
-    email?: string[];
-    password?: string[];
-    confirmPassword?: string[];
-  };
-  message?: string | null;
-};
+import { SignUpSchema } from "./schemas";
+import { SignUpState } from "./states";
 
 export const signUp = async (
-  prevState: State,
+  prevState: SignUpState,
   formData: FormData,
 ): Promise<{ errors?: {}; message?: string | null }> => {
   // Validate form using Zod
@@ -101,4 +53,12 @@ export const signUp = async (
   // Revalidate the cache for the login page and redirect the user.
   revalidatePath("/login");
   redirect("/login");
+};
+
+export const login = async () => {
+  console.log("Login Successfully");
+
+  // Revalidate the cache for the login page and redirect the user.
+  revalidatePath("/event");
+  redirect("/events");
 };

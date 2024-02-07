@@ -1,6 +1,7 @@
 "use client";
 
-import { State, signUp } from "@/app/lib/actions";
+import { signUp } from "@/app/lib/actions";
+import { SignUpState } from "@/app/lib/states";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useFormState } from "react-dom";
@@ -11,7 +12,7 @@ import Form from "./Form.component";
 const SignUpForm = () => {
   const initialState = { message: null, errors: {} };
   const [state, dispatch]: [
-    state: State,
+    state: SignUpState,
     dispatch: (payload: FormData) => void,
   ] = useFormState(signUp, initialState);
 

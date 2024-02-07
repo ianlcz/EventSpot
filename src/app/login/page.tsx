@@ -1,15 +1,10 @@
 import { Metadata } from "next";
+import LoginForm from "../components/Forms/LoginForm.component";
 
 export const metadata: Metadata = {
   title: "Connectez-vous",
 };
 
-const Page = () => {
-  return (
-    <h1 className='block text-2xl font-bold text-gray-800 sm:text-3xl dark:text-white'>
-      Login page
-    </h1>
-  );
-};
+const Page = () => <LoginForm />;
 
 export default Page;
