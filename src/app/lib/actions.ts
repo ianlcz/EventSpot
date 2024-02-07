@@ -4,43 +4,43 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
-const FormSchema: any = z.object({
-  id: z.string(),
-  lastname: z.string().refine((data) => data !== undefined && data !== "", {
-    message: "Veuillez renseigner votre nom de famille.",
-  }),
-  firstname: z.string().refine((data) => data !== undefined && data !== "", {
-    message: "Veuillez renseigner votre prénom.",
-  }),
-  phoneNumber: z.string(),
-  email: z.string().email({
-    message: "Veuillez saisir une adresse email valide.",
-  }),
-  password: z
-    .string()
-    .min(8, {
-      message: "Le mot de passe doit avoir au moins 8 caractères.",
-    })
-    .refine((data) => /[A-Z]/.test(data), {
-      message: "Le mot de passe doit contenir des majuscules.",
-    })
-    .refine((data) => /[a-z]/.test(data), {
-      message: "Le mot de passe doit contenir des minuscules.",
-    })
-    .refine((data) => /\d/.test(data), {
-      message: "Le mot de passe doit contenir des chiffres.",
-    })
-    .refine((data) => /[!@#$%^&*(),.?":{}|<>]/.test(data), {
-      message: "Le mot de passe doit contenir au moins un caractère spécial.",
-    })
-    .refine((data) => data !== undefined && data !== "", {
-      message: "Veuillez renseigner votre mot de passe.",
+const SignUpSchema = z
+  .object({
+    lastname: z.string().refine((data) => data !== undefined && data !== "", {
+      message: "Veuillez renseigner votre nom de famille.",
     }),
-  confirmPassword: z.string().refine((data) => data === FormSchema.password, {
+    firstname: z.string().refine((data) => data !== undefined && data !== "", {
+      message: "Veuillez renseigner votre prénom.",
+    }),
+    phoneNumber: z.string(),
+    email: z.string().email({
+      message: "Veuillez saisir une adresse email valide.",
+    }),
+    password: z
+      .string()
+      .min(8, {
+        message: "Doit avoir au moins 8 caractères.",
+      })
+      .refine((data) => /[A-Z]/.test(data), {
+        message: "Doit contenir des majuscules.",
+      })
+      .refine((data) => /[a-z]/.test(data), {
+        message: "Doit contenir des minuscules.",
+      })
+      .refine((data) => /\d/.test(data), {
+        message: "Doit contenir des chiffres.",
+      })
+      .refine((data) => /[!@#$%^&*(),.?":{}|<>]/.test(data), {
+        message: "Doit contenir au moins un caractère spécial.",
+      }),
+
+    confirmPassword: z.string(),
+    bornAt: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
     message: "Les mots de passe ne correspondent pas.",
-  }),
-  bornAt: z.string(),
-});
+    path: ["confirmPassword"],
+  });
 
 export type State = {
   errors?: {
@@ -53,14 +53,12 @@ export type State = {
   message?: string | null;
 };
 
-const SignUp = FormSchema.omit({ id: true });
-
 export const signUp = async (
   prevState: State,
   formData: FormData,
 ): Promise<{ errors?: {}; message?: string | null }> => {
   // Validate form using Zod
-  const validatedFields = SignUp.safeParse({
+  const validatedFields = SignUpSchema.safeParse({
     lastname: formData.get("lastname"),
     firstname: formData.get("firstname"),
     phoneNumber: formData.get("phoneNumber"),
@@ -97,7 +95,7 @@ export const signUp = async (
     email,
     password,
     confirmPassword,
-    bornAt,
+    bornAt: new Date(bornAt),
   });
 
   // Revalidate the cache for the login page and redirect the user.
