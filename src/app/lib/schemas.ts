@@ -30,7 +30,7 @@ export const SignUpSchema = z
       .refine((data) => /\d/.test(data), {
         message: "Doit contenir des chiffres.",
       })
-      .refine((data) => /[!@#$%^&*(),.?":{}|<>]/.test(data), {
+      .refine((data) => /[!@#$%^&*(),.?":{}|<>-_]/.test(data), {
         message: "Doit contenir au moins un caractère spécial.",
       }),
 
@@ -41,3 +41,8 @@ export const SignUpSchema = z
     message: "Les mots de passe ne correspondent pas.",
     path: ["confirmPassword"],
   });
+
+export const LoginSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});

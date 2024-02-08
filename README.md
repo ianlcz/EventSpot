@@ -1,12 +1,16 @@
 # EventSpot
 
+A web platform for consulting and creating events throughout mainland France.
+
 ## Author
 
 - [Yann LE COZ](https://github.com/ianlcz)
 
 ## Built with
 
-- [Next.js](https://nextjs.org) - The React Framework for the Web
+- [Next.js](https://nextjs.org) - The React Framework for the Web.
+- [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference.
+- [Preline UI](https://preline.co) - Preline UI is an open-source set of prebuilt UI components based on the utility-first [Tailwind CSS](https://tailwindcss.com) framework.
 
 ## Installation
 

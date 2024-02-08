@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { SignUpSchema } from "./schemas";
-import { SignUpState } from "./states";
+import { LoginState, SignUpState } from "./states";
 
 export const signUp = async (
   prevState: SignUpState,
@@ -55,8 +55,12 @@ export const signUp = async (
   redirect("/login");
 };
 
-export const login = async () => {
-  console.log("Login Successfully");
+export const login = async (prevData: LoginState, formData: FormData) => {
+  const credential = {
+    email: formData.get("email"),
+    password: formData.get("password"),
+  };
+  console.log(credential);
 
   // Revalidate the cache for the login page and redirect the user.
   revalidatePath("/event");

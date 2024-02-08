@@ -40,6 +40,7 @@ const SignUpForm = () => {
           name='lastname'
           label='Votre nom de famille'
           type='text'
+          autoComplete='family-name'
           state={state?.errors?.lastname && state.errors.lastname}
         />
 
@@ -47,6 +48,7 @@ const SignUpForm = () => {
           name='firstname'
           label='Votre prénom'
           type='text'
+          autoComplete='given-name'
           state={state?.errors?.firstname && state.errors.firstname}
         />
       </div>
@@ -55,15 +57,22 @@ const SignUpForm = () => {
         name='phoneNumber'
         label='Votre numéro de téléphone'
         type='tel'
+        autoComplete='tel'
         placeholder='+33 0 00 00 00 00'
       />
 
-      <Input name='bornAt' label='Votre date de naissance' type='date' />
+      <Input
+        name='bornAt'
+        label='Votre date de naissance'
+        type='date'
+        autoComplete='bday'
+      />
 
       <Input
         name='email'
         label='Votre adresse email'
         type='email'
+        autoComplete='email'
         placeholder='john.doe@example.com'
         state={state?.errors?.email && state.errors.email}
       >
@@ -78,6 +87,7 @@ const SignUpForm = () => {
       <Password
         name='password'
         label='Votre mot de passe'
+        autoComplete='new-password'
         placeholder='Entrez votre mot de passe'
         state={state?.errors?.password && state.errors.password}
       />

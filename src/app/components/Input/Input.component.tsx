@@ -10,6 +10,7 @@ export type InputProps = {
   type: HTMLInputTypeAttribute;
   label?: string;
   placeholder?: string;
+  autoComplete?: string;
   state?: string[];
   required?: boolean;
 };
@@ -19,6 +20,7 @@ const Input: FunctionComponent<PropsWithChildren<InputProps>> = ({
   label,
   type,
   placeholder,
+  autoComplete,
   state,
   required,
   children,
@@ -39,8 +41,9 @@ const Input: FunctionComponent<PropsWithChildren<InputProps>> = ({
         name={name}
         className={`${
           type === "email" && children ? "ps-11 " : ""
-        }py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600`}
+        }py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-secondary disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600`}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         required={required}
         aria-describedby={`${name}-error`}
       />
