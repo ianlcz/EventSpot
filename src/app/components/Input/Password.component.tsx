@@ -1,8 +1,9 @@
+import { FormInput } from "@/app/lib/definitions";
 import { FunctionComponent, HTMLInputTypeAttribute } from "react";
-import Input, { InputProps } from "./Input.component";
+import Input from "./Input.component";
 
 export type PasswordProps =
-  | InputProps
+  | FormInput
   | { name: string; type?: HTMLInputTypeAttribute };
 
 const Password: FunctionComponent<PasswordProps> = ({
