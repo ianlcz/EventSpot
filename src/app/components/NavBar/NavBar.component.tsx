@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className='w-full mx-auto mt-4 px-4 py-2 flex flex-wrap basis-full items-center justify-between md:rounded-2xl md:border md:border-gray-200 dark:bg-transparent dark:border-gray-700 md:shadow-lg'
+      className='w-full mx-auto mt-4 px-0 md:px-4 py-2 flex flex-wrap basis-full items-center justify-between md:rounded-2xl md:border md:border-gray-200 dark:bg-transparent dark:border-gray-700 md:shadow-lg'
       aria-label='Global'
     >
       <Link

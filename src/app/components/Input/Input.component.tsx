@@ -1,21 +1,8 @@
+import { FormInput } from "@/app/lib/definitions";
 import { XCircleIcon } from "@heroicons/react/24/solid";
-import {
-  FunctionComponent,
-  HTMLInputTypeAttribute,
-  PropsWithChildren,
-} from "react";
+import { FunctionComponent, PropsWithChildren } from "react";
 
-export type InputProps = {
-  name: string;
-  type: HTMLInputTypeAttribute;
-  label?: string;
-  placeholder?: string;
-  autoComplete?: string;
-  state?: string[];
-  required?: boolean;
-};
-
-const Input: FunctionComponent<PropsWithChildren<InputProps>> = ({
+const Input: FunctionComponent<PropsWithChildren<FormInput>> = ({
   name,
   label,
   type,

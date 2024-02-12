@@ -1,3 +1,5 @@
+import { HTMLInputTypeAttribute } from "react";
+
 export type Link = {
   name: string;
   href: string;
@@ -17,4 +19,14 @@ export type User = {
   lastConnectionAt?: Date;
   registeredAt?: Date;
   updatedAt?: Date;
+};
+
+export type FormInput = {
+  name: string;
+  type: HTMLInputTypeAttribute;
+  label?: string;
+  placeholder?: string;
+  autoComplete?: string;
+  state?: string[];
+  required?: boolean;
 };

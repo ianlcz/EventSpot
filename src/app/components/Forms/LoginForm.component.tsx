@@ -1,6 +1,7 @@
 "use client";
 
 import { login } from "@/app/lib/actions";
+import { FormInput } from "@/app/lib/definitions";
 import { LoginState } from "@/app/lib/states";
 import Link from "next/link";
 import { useFormState } from "react-dom";
@@ -13,6 +14,23 @@ const LoginForm = () => {
     state: LoginState,
     dispatch: (payload: FormData) => void,
   ] = useFormState(login, initialState);
+
+  const inputs: FormInput[] = [
+    {
+      name: "email",
+      label: "Votre adresse email",
+      type: "email",
+      autoComplete: "email",
+      placeholder: "Saisissez votre adresse email",
+    },
+    {
+      name: "password",
+      label: "Votre mot de passe",
+      type: "password",
+      autoComplete: "current-password",
+      placeholder: "Saisissez votre mot de passe",
+    },
+  ];
 
   return (
     <Form
@@ -33,23 +51,17 @@ const LoginForm = () => {
       action={dispatch}
       submitTitle='Je me connecte'
     >
-      <Input
-        name='email'
-        label='Votre adresse email'
-        type='email'
-        autoComplete='email'
-        placeholder='Saisissez votre adresse email'
-        required
-      />
-
-      <Input
-        name='password'
-        label='Votre mot de passe'
-        type='password'
-        autoComplete='current-password'
-        placeholder='Saisissez votre mot de passe'
-        required
-      />
+      {inputs.map(({ name, label, type, autoComplete, placeholder }, idx) => (
+        <Input
+          key={idx}
+          name={name}
+          label={label}
+          type={type}
+          autoComplete={autoComplete}
+          placeholder={placeholder}
+          required={true}
+        />
+      ))}
     </Form>
   );
 };

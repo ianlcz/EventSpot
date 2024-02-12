@@ -5,7 +5,7 @@ import {
   PaintBrushIcon,
 } from "@heroicons/react/24/outline";
 import HeadingSection from "./components/HeadingSection.component";
-import IconSection from "./components/IconSection.component";
+import { IconGrid } from "./components/IconGrid/IconGrid.component";
 import { righteous } from "./fonts";
 
 const Home = () => {
@@ -95,11 +95,7 @@ const Home = () => {
       <h2 className='mt-6 block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
         Que propose EventSpot ?
       </h2>
-      <div className='mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-12'>
-        {proposals.map(({ title, detail, icon }, idx) => (
-          <IconSection key={idx} title={title} detail={detail} icon={icon} />
-        ))}
-      </div>
+      <IconGrid sections={proposals} />
 
       <blockquote className='relative w-fit mx-auto mt-8'>
         <svg
