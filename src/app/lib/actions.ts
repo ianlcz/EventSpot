@@ -1,9 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import APIClient from "../utils/apiClient";
 import { SignUpSchema } from "./schemas";
 import { LoginState, SignUpState } from "./states";
 
@@ -42,25 +40,15 @@ export const signUp = async (
   } = validatedFields.data;
 
   // Insert data into the database
-  await APIClient(`mutation SignUp {
-    signUp(
-      createUserInput: {
-        lastname: "${lastname}"
-        firstname: "${firstname}"
-        email: "${email}"
-        phoneNumber: "${phoneNumber}"
-        password: "${password}"
-        confirmPassword: "${confirmPassword}"
-        bornAt: "${bornAt}"
-      }) {
-        lastname
-        firstname
-        email
-        phoneNumber
-        bornAt
-        registeredAt
-      }
-  }`);
+  console.log({
+    lastname,
+    firstname,
+    phoneNumber,
+    email,
+    password,
+    confirmPassword,
+    bornAt: new Date(bornAt),
+  });
 
   // Revalidate the cache for the login page and redirect the user.
   revalidatePath("/login");
@@ -73,15 +61,7 @@ export const login = async (prevData: LoginState, formData: FormData) => {
     password: formData.get("password"),
   };
 
-  const { signIn }: { signIn: { accessToken: string; refreshToken: string } } =
-    await APIClient(`mutation SignIn {
-    signIn(email: "${credential.email}", password: "${credential.password}") {
-      accessToken
-      refreshToken
-    }
-  }`);
-
-  cookies().set("auth_tokens", JSON.stringify(signIn));
+  console.log(credential);
 
   // Revalidate the cache for the login page and redirect the user.
   revalidatePath("/event");
