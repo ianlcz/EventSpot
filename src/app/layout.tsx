@@ -27,7 +27,7 @@ const RootLayout = ({
 }>) => (
   <html lang='fr'>
     <body
-      className={`${poppins.className} max-w-5xl min-h-screen mx-auto px-6 xl:px-0 flex flex-col justify-between bg-white dark:bg-slate-800`}
+      className={`${poppins.className} max-w-5xl min-h-screen mx-auto px-4 xl:px-0 flex flex-col justify-between bg-white dark:bg-slate-800`}
     >
       <header className='flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm'>
         <Navbar />

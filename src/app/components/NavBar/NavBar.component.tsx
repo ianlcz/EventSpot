@@ -20,7 +20,13 @@ const NavBar = () => {
         href='/'
         aria-label='EventSpot'
       >
-        <Image src='/favicon.ico' alt='EventSpot Logo' width={40} height={40} />
+        <Image
+          src='/favicon.ico'
+          alt='EventSpot Logo'
+          className='w-8 h-8 md:w-10 md:h-10'
+          width={40}
+          height={40}
+        />
         EventSpot
       </Link>
       <div className='sm:order-3 flex items-center gap-x-2'>
