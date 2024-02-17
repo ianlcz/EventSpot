@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Metadata } from "next";
 import HeadingSection from "../components/HeadingSection.component";
-import { IconGrid } from "../components/IconGrid/IconGrid.component";
+import IconSection from "../components/IconSection.component";
 import { righteous } from "../fonts";
 
 export const metadata: Metadata = {
@@ -77,7 +77,13 @@ const Page = () => {
       <h2 className='mt-8 block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
         Fonctionnalités clés
       </h2>
-      <IconGrid sections={keyFeatures} />
+      <div
+        className={`mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12`}
+      >
+        {keyFeatures.map(({ title, detail, icon }, idx) => (
+          <IconSection key={idx} title={title} detail={detail} icon={icon} />
+        ))}
+      </div>
 
       <h2 className='mt-8 block text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary sm:text-2xl dark:text-white'>
         Contactez-moi
